@@ -27,7 +27,7 @@ codegen:
 check: codegen fmt-check
     {{flutter-command}} analyze
     cd rust && cargo test --locked
-    cd example && {{flutter-command}} test integration_test/simple_test.dart -d {{host-platform}}
+    cd example && {{flutter-command}} test integration_test/markdown_toolkit_test.dart -d {{host-platform}}
 
 # Build the example for a target: linux, macos, windows, android, ios, or web.
 build target=host-platform:

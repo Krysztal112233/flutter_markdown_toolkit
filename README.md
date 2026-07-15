@@ -2,6 +2,20 @@
 
 A cross-platform Flutter package using flutter_rust_bridge 2.13 and Native Assets.
 
+## Usage
+
+Initialize the Rust library once, then format or lint Markdown asynchronously:
+
+```dart
+await RustLib.init();
+
+final diagnostics = await lintMarkdown(markdown: '#Heading\n');
+final formatted = await formatMarkdown(markdown: '#Heading\n');
+```
+
+Lint diagnostics include the rumdl rule name, message, source range, severity,
+and whether an automatic fix is available.
+
 ## Project structure
 
 - `rust`: Rust crate and Flutter-facing APIs.
