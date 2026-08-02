@@ -13,14 +13,30 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 Future<List<MarkdownLintDiagnostic>> lintMarkdown({required String markdown}) =>
     RustLib.instance.api.crateApiLinterLintMarkdown(markdown: markdown);
 
+/// A single diagnostic reported by the Markdown linter.
 class MarkdownLintDiagnostic {
+  /// Name of the rumdl rule that produced this diagnostic (e.g. `MD018`).
   final String ruleName;
+
+  /// Human-readable description of the violation.
   final String message;
+
+  /// 1-based line where the violation starts.
   final int line;
+
+  /// 1-based column where the violation starts.
   final int column;
+
+  /// 1-based line where the violation ends.
   final int endLine;
+
+  /// 1-based column where the violation ends.
   final int endColumn;
+
+  /// Severity of the violation.
   final MarkdownLintSeverity severity;
+
+  /// Whether rumdl can automatically fix this violation.
   final bool hasFix;
 
   const MarkdownLintDiagnostic({
@@ -60,4 +76,14 @@ class MarkdownLintDiagnostic {
           hasFix == other.hasFix;
 }
 
-enum MarkdownLintSeverity { error, warning, info }
+/// Severity of a [MarkdownLintDiagnostic].
+enum MarkdownLintSeverity {
+  /// The violation is an error.
+  error,
+
+  /// The violation is a warning.
+  warning,
+
+  /// Informational message.
+  info,
+}

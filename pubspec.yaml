@@ -1,15 +1,33 @@
 name: flutter_markdown_toolkit
 description: "A cross-platform Markdown toolkit backed by Rust through flutter_rust_bridge."
-version: 0.0.1
+version: 0.1.0
+repository: https://github.com/Krysztal112233/flutter_markdown_toolkit
+topics:
+  - markdown
+  - markdown-lint
+  - markdown-formatter
+  - rust
+  - flutter-rust-bridge
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  windows:
+  web:
 
 environment:
   sdk: ^3.12.2
+  flutter: ">=3.35.0"
 
 dependencies:
-  flutter_rust_bridge: 2.13.0-beta.5
-  flutter_rust_bridge_hooks: 2.13.0-beta.5
+  flutter_rust_bridge: ^2.13.0-beta.5
+  flutter_rust_bridge_hooks: ^2.13.0-beta.5
 
 dev_dependencies:
   flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
   integration_test:
     sdk: flutter

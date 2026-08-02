@@ -2,22 +2,35 @@ use rumdl_lib::config::Config;
 use rumdl_lib::rule::{LintWarning, Severity};
 use rumdl_lib::rules::{all_rules, filter_rules};
 
+/// A single diagnostic reported by the Markdown linter.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MarkdownLintDiagnostic {
+    /// Name of the rumdl rule that produced this diagnostic (e.g. `MD018`).
     pub rule_name: String,
+    /// Human-readable description of the violation.
     pub message: String,
+    /// 1-based line where the violation starts.
     pub line: u32,
+    /// 1-based column where the violation starts.
     pub column: u32,
+    /// 1-based line where the violation ends.
     pub end_line: u32,
+    /// 1-based column where the violation ends.
     pub end_column: u32,
+    /// Severity of the violation.
     pub severity: MarkdownLintSeverity,
+    /// Whether rumdl can automatically fix this violation.
     pub has_fix: bool,
 }
 
+/// Severity of a [MarkdownLintDiagnostic].
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MarkdownLintSeverity {
+    /// The violation is an error.
     Error,
+    /// The violation is a warning.
     Warning,
+    /// Informational message.
     Info,
 }
 
