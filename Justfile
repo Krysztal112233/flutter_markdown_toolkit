@@ -1,4 +1,4 @@
-frb-version := "2.13.0-beta.5"
+frb-version := "2.14.0-beta.2"
 project-root := justfile_directory()
 flutter-command := env_var_or_default("FLUTTER_COMMAND", "fvm flutter")
 dart-command := env_var_or_default("DART_COMMAND", "fvm dart")
